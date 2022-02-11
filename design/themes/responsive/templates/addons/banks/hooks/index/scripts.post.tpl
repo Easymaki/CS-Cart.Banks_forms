@@ -1,0 +1,1 @@
+{script src="js/addons/banks/select_bank.js"}

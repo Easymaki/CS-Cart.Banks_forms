@@ -1,0 +1,1 @@
+<th>{__("payment_information")}</th>

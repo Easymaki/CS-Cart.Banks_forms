@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>banks</id>
+    <version>1.0</version>
+    <name>Banks</name>
+    <status>active</status>
+    <default_language>en</default_language>
+    <queries>
+        <item>DROP TABLE IF EXISTS ?:banks;</item>
+        <item>DROP TABLE IF EXISTS ?:banks_descriptions;</item>
+        <item>DROP TABLE IF EXISTS ?:banks_form;</item>
+        <item>DROP TABLE IF EXISTS ?:banks_form_descriptions;</item>
+        <item>DROP TABLE IF EXISTS ?:banks_form_elements;</item>
+        <item>DROP TABLE IF EXISTS ?:banks_form_elements_descriptions;</item>
+        <item>
+            CREATE TABLE `?:banks` (
+                `bank_id` int(11) unsigned NOT NULL auto_increment,
+                `status` char(1) NOT NULL default 'A',
+                `position` int(11) NOT NULL default '1',
+                PRIMARY KEY  (`bank_id`),
+                KEY `status` (`status`)
+            ) Engine=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item>
+            CREATE TABLE `?:banks_descriptions` (
+                `bank_id` int(11) unsigned NOT NULL,
+                `lang_code` char(2) NOT NULL default '',
+                `bank` varchar(255) NOT NULL default '',
+            ) Engine=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item>
+            CREATE TABLE `?:banks_form` (
+                `bank_id` int(11) unsigned NOT NULL,
+                `form_id` int(11) unsigned NOT NULL auto_increment,
+                `element_type` char(1) NOT NULL default '',
+                `position` int(11) NOT NULL default '',
+                `status` varchar(1) NOT NULL default 'A',
+            ) Engine=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item>
+            CREATE TABLE `?:banks_form_descriptions` (
+                `form_id` int(11) NOT NULL,
+                `description` text NOT NULL default '',
+                `lang_code` char(2) NOT NULL default '',
+            ) Engine=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item>
+            CREATE TABLE `?:banks_form_elements` (
+                `form_id` int(11) NOT NULL,
+                `element_id` int(11) NOT NULL auto_increment,
+                `position` int(11) NOT NULL default '',
+            ) Engine=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item>
+            CREATE TABLE `?:banks_form_elements_descriptions` (
+                `element_id` int(11) NOT NULL,
+                `description` text NOT NULL default '',
+                `lang_code` char(2) NOT NULL default '',
+            ) Engine=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:banks;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:banks_descriptions;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:banks_form;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:banks_form_descriptions;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:banks_form_elements;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:banks_form_elements_descriptions;</item>
+    </queries>
+</addon>
