@@ -99,7 +99,7 @@
                         <input type="text" class="span7" name="bank_data[form][{$num}][variants][{$vnum}][description]" />
                     </td>
                     <td data-th="&nbsp;">
-                        {include file="buttons/multiple_buttons.tpl" item_id="elm_variants_`$element.form_id`" tag_level="5"}
+                        {include file="buttons/multiple_buttons.tpl" item_id="elm_variants_`$element.form_id`" tag_level="3"}
                     </td>
                 </tr>
                 </table>
@@ -151,7 +151,7 @@
                         <input class="span7" type="text" name="bank_data[form][{$num}][variants][0][description]" />
                     </td>
                     <td data-th="&nbsp;">
-                        {include file="buttons/multiple_buttons.tpl" item_id="elm_variants_add_variants" tag_level="5"}
+                        {include file="buttons/multiple_buttons.tpl" item_id="elm_variants_add_variants" tag_level="3"}
                     </td>
                 </tr>
                 </table>
