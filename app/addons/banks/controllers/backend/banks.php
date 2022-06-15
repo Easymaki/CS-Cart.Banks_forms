@@ -22,7 +22,6 @@ if ($mode == 'manage') {
     $banks = fn_banks_get_banks(DESCR_SL);
 
     Tygh::$app['view']->assign('banks', $banks);
-    Tygh::$app['view']->assign('search', $search);
 } elseif ($mode == 'update') {
     $bank_id = !empty($_REQUEST['bank_id']) ? $_REQUEST['bank_id'] : 0;
 
